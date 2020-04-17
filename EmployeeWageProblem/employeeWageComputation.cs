@@ -11,7 +11,7 @@ namespace EmployeeWageProblem
         public const int WORKING_DAYS_PER_MONTH = 20;
         public const int MAXIMUM_WORKING_HOURS = 100;
 
-        static void calculateEmpWages()
+         void calculateEmpWages()
         {
             //Variables
             int empHours = 0;
@@ -47,7 +47,8 @@ namespace EmployeeWageProblem
         }
         static void Main(string[] args)
         {
-            calculateEmpWages();
+            EmployeeWageComputation employeeWage = new EmployeeWageComputation();
+            employeeWage.calculateEmpWages();
         }
     }
 }
