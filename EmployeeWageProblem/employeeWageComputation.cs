@@ -7,27 +7,12 @@ namespace EmployeeWageProblem
         //Constants
         public const int IS_FULL_TIME = 1;
         public const int IS_PART_TIME = 2;
-
-        private String company;
-        private int empRatePerHour;
-        private int workingDaysPerMonth;
-        private int maximumWorkingHours;
-
-        EmployeeWageComputation(String company, int empRatePerHour, int workingDaysPerMonth, int maximumWorkingHours)
-        {
-            this.company = company;
-            this.empRatePerHour = empRatePerHour;
-            this.workingDaysPerMonth = workingDaysPerMonth;
-            this.maximumWorkingHours = maximumWorkingHours;
-            calculateEmpWages();
-        }
-
-        //Compute total employee wage for a company 
-        void calculateEmpWages()
+        
+        //Calculate total employee wage for a company 
+        static void calculateEmpWages(String company, int empRatePerHour, int workingDaysPerMonth, int maximumWorkingHours)
         {
             //Variables
             int empHours = 0;
-            int empWage = 0;
             int totalHours = 0;
             int days = 0;
 
@@ -53,13 +38,13 @@ namespace EmployeeWageProblem
                 totalHours += empHours;
                 days++;
             }
-            empWage = totalHours * empRatePerHour;
+            int empWage = totalHours * empRatePerHour;
             Console.WriteLine("Employee wage for " + company + " is " + empWage);
         }
         static void Main(string[] args)
         {
-            EmployeeWageComputation wageComputation1 = new EmployeeWageComputation("Jio", 20, 22, 100);
-            EmployeeWageComputation wageComputation2 = new EmployeeWageComputation("Reliance", 30, 20, 90);
+            calculateEmpWages("Jio", 20, 22, 100);
+            calculateEmpWages("Reliance", 30, 20, 90);
         }
     }
 }
