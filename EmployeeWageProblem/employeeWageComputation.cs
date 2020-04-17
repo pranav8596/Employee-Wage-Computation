@@ -11,7 +11,7 @@ namespace EmployeeWageProblem
         public const int WORKING_DAYS_PER_MONTH = 20;
         public const int MAXIMUM_WORKING_HOURS = 100;
 
-        static void Main(string[] args)
+        static void calculateEmpWages()
         {
             //Variables
             int empHours = 0;
@@ -23,7 +23,7 @@ namespace EmployeeWageProblem
             Random random = new Random();
 
             //Calculate wages for a month
-            while (days != WORKING_DAYS_PER_MONTH && totalHours != MAXIMUM_WORKING_HOURS )
+            while (days != WORKING_DAYS_PER_MONTH && totalHours != MAXIMUM_WORKING_HOURS)
             {
                 int empCheck = (int)Math.Floor(random.NextDouble() * 10) % 3;
                 switch (empCheck)
@@ -44,7 +44,10 @@ namespace EmployeeWageProblem
             //Calculation of Daily wage
             empWage = totalHours * EMP_RATE_PER_HOUR;
             Console.WriteLine("Employee wage: " + empWage);
-
+        }
+        static void Main(string[] args)
+        {
+            calculateEmpWages();
         }
     }
 }
