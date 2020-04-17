@@ -20,17 +20,17 @@ namespace EmployeeWageProblem
             double empCheck = Math.Floor(random.NextDouble() * 10) % 3;
 
             //Check if an Employee is Present or Absent 
-            if (empCheck == IS_FULL_TIME)
+            switch (empCheck)
             {
-                empHours = 8;
-            }
-            else if (empCheck == IS_PART_TIME)
-            {
-                empHours = 4;
-            }
-            else
-            {
-                empHours = 0;
+                case 1:
+                    empHours = 8;
+                    break;
+                case 2:
+                    empHours = 4;
+                    break;
+                default:
+                    empHours = 0;
+                    break;
             }
             //Calculation of Daily wage
             empWage = empHours * EMP_RATE_PER_HOUR;
