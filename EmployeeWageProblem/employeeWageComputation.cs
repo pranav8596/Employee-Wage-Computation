@@ -2,14 +2,27 @@
 
 namespace EmployeeWageProblem
 {
-    class EmployeeWageComputation
+    public class EmployeeWageComputation
     {
         //Constants
         public const int IS_FULL_TIME = 1;
         public const int IS_PART_TIME = 2;
-        
+
+        private String company;
+        private int empRatePerHour;
+        private int workingDaysPerMonth;
+        private int maximumWorkingHours;
+
+        public EmployeeWageComputation(String company, int empRatePerHour, int workingDaysPerMonth, int maximumWorkingHours)
+        {
+            this.company = company;
+            this.empRatePerHour = empRatePerHour;
+            this.workingDaysPerMonth = workingDaysPerMonth;
+            this.maximumWorkingHours = maximumWorkingHours;
+        }
+
         //Calculate total employee wage for a company 
-        static void calculateEmpWages(String company, int empRatePerHour, int workingDaysPerMonth, int maximumWorkingHours)
+        void calculateEmpWages()
         {
             //Variables
             int empHours = 0;
@@ -43,8 +56,10 @@ namespace EmployeeWageProblem
         }
         static void Main(string[] args)
         {
-            calculateEmpWages("Jio", 20, 22, 100);
-            calculateEmpWages("Reliance", 30, 20, 90);
+            EmployeeWageComputation infosys = new EmployeeWageComputation("Infosys", 20, 22, 100);
+            EmployeeWageComputation reliance = new EmployeeWageComputation("Reliance", 30, 20, 90);
+            infosys.calculateEmpWages();
+            reliance.calculateEmpWages();
         }
     }
 }
